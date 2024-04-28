@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Oops! Debes iniciar sesión{% endblock %}
+
+{% block content %}
+    <style>
+        #main-content {
+            margin: 20px;
+            text-align: center;
+        }
+
+        button[type="submit"], .nav-item a.nav-link {
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Para quitar el subrayado en los enlaces */
+        }
+
+        button[type="submit"]:hover, .nav-item a.nav-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <main id="main-content">
+        <h1>Oops! Debes iniciar sesión para interactuar</h1>
+        <p>Por favor, inicia sesión para poder acceder a esta función.</p>
+        <a href="{% url 'login' %}?next={{ request.path|urlencode }}">Iniciar Sesión</a>
+    </main>
+{% endblock %}

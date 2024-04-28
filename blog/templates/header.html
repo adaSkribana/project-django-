@@ -1,0 +1,45 @@
+<style>
+    .nav-item form button, .nav-item a.nav-link {
+        margin: 10px;
+        /* Otros estilos opcionales */
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none; /* Para quitar el subrayado en los enlaces */
+    }
+
+    .nav-item form button:hover, .nav-item a.nav-link:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="n">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">MALIBU Releases</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            </ul>
+            <span class="navbar-text">
+            Queremos saber de ti
+            </span>
+        </div>
+        </div>
+    </nav>
+</header>
+

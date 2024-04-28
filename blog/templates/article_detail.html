@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+    <style>
+        #main-content {
+            margin: 20px;
+            text-align: center;
+        }
+
+        button[type="submit"], .nav-item a.nav-link {
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Para quitar el subrayado en los enlaces */
+        }
+
+        button[type="submit"]:hover, .nav-item a.nav-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <main id="main-content">
+        <h1>{{ article.title }}</h1>
+        <p>{{ article.content }}</p>
+
+        <h2>Comments:</h2>
+        {% for comment in comments %}
+            <div>
+                <p>{{ comment.name }} - {{ comment.created_at }}</p>
+                <p>{{ comment.body }}</p>
+            </div>
+        {% empty %}
+            <p>No comments yet.</p>
+        {% endfor %}
+
+        <h2>Add a comment:</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+{% endblock %}
