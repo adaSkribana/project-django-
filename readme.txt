@@ -1,6 +1,4 @@
-¡Entendido! Aquí tienes la tabla con las columnas correspondientes a los campos solicitados y una fila con los datos de los usuarios ficticios:
-
-```
+data fake
 | Nombre  | Apellido   | Correo electrónico       | Nombre de usuario | Contraseña       |
 |---------|------------|--------------------------|-------------------|------------------|
 | Juan    | Pérez      | juan.perez@example.com   | usuario1          | Passw0rd!        |
